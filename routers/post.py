@@ -35,7 +35,7 @@ async def create_posts(post: schemaPost.PostCreate, db: Session = Depends(config
 @router.get("/{id}", response_model=schemaPost.PostOut)
 def get_post(id: int, db: Session = Depends(config.get_db), current_user: int = Depends(oauth2.get_current_user)):
 
-    post = db.query(post.Post, func.count(vote.Vote.post_id).label("votes")).join(vote.Vote, vote.Vote.post_id == modelPost.Post.id, isouter=True).group_by(modelPost.Post.id).filter(modelPost.Post.id == id).first()
+    post = db.query(modelPost.Post, func.count(vote.Vote.post_id).label("votes")).join(vote.Vote, vote.Vote.post_id == modelPost.Post.id, isouter=True).group_by(modelPost.Post.id).filter(modelPost.Post.id == id).first()
 
     if not post:
         raise HTTPException(status_code=404, detail="item with id: {id} not found")
