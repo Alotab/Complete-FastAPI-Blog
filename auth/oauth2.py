@@ -1,33 +1,26 @@
 from jose import JWTError, jwt 
 from datetime import datetime, timedelta
-from . import schemas
 from fastapi import Depends, HTTPException,status
 from fastapi.security import OAuth2PasswordBearer
 from typing import Annotated
 from sqlalchemy.orm import Session
-from . import models, utils, schemas
 
-
+from ..models import user
 from ..utils import verify
 from ..schemas.token import TokenData
 from ..database.config import get_db
 from ..settings import settings
 
-# to get a string like this run:
-# openssl rand -hex 32
 SECRET_KEY = settings.secret_key
 ALGORITHM = settings.algorithm
 ACCESS_TOKEN_EXPIRE_MINUTES = settings.access_token_expire_minutes
 
-
 oauth2_schema = OAuth2PasswordBearer(tokenUrl='login')
-
-
 
 
 def get_user(db: Session, username: str):
     """get user by email"""
-    return db.query(models.User).filter(models.User.email == username).first()
+    return db.query(user.User).filter(user.User.email == username).first()
 
 
 def authenticat_user(username: str, password: str, db):
@@ -82,7 +75,6 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_schema)], db: Se
         username: str = payload.get("sub")
         if username is None:
             raise credentials_exception
-        # token_data = schemas.TokenData(username=username)
         token_data = TokenData(username=username)
     except JWTError:
         raise credentials_exception
