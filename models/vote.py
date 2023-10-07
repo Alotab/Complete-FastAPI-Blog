@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, ForeignKey
 
-from ..database.config import Base
+from database.config import Base
 
 
 class Vote(Base):

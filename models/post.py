@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, Boolean, TIMESTAMP, ForeignKey
 from sqlalchemy.orm import relationship
 from datetime import datetime
 
-from ..database.config import Base
+from database.config import Base
 
 
 class Post(Base):
