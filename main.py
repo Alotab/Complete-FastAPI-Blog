@@ -1,11 +1,11 @@
 from fastapi import FastAPI
-from . import models
+# from . import models
 
 from routers import auth, user, post, votes
-from database.config import engine
+from database.config import engine, Base
 
 
-models.Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 
 
