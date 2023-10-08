@@ -5,11 +5,12 @@ from fastapi.security import OAuth2PasswordBearer
 from typing import Annotated
 from sqlalchemy.orm import Session
 
-from models import user
-from utils import verify
-from schemas.token import TokenData
-from database.config import get_db
-from settings import settings
+from ..models import user
+# from models import user
+from ..utils import verify
+from ..schemas.token import TokenData
+from ..database.config import get_db
+from ..settings import settings
 
 SECRET_KEY = settings.secret_key
 ALGORITHM = settings.algorithm

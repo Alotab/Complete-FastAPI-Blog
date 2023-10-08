@@ -3,12 +3,12 @@ from sqlalchemy import func
 from sqlalchemy.orm import Session
 from typing import List, Optional
 
-from auth import oauth2
-from models import vote
-from models import user
-from models import post as modelPost
-from schemas import post as schemaPost
-from database import config
+from ..auth import oauth2
+from ..models import vote
+# from models import user
+from ..models import post as modelPost
+from ..schemas import post as schemaPost
+from ..database import config
 
 
 router = APIRouter(prefix="/posts", tags=['Posts'])
