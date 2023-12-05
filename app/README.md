@@ -122,3 +122,20 @@ Parameters:
   "votes": 10
 }
 ```
+
+
+# Database Migrations
+
+This project uses Alembic for database migrations. Alembic is a tool for managing database schema changes. It allows you to define migrations, which are incremental changes to the database schema, and apply them to your database in a controlled manner.
+
+To use Alembic, you will need to follow these steps:
+1. Create an initial migration:
+```
+alembic init
+```
+2. Edit the migration file that is generated to make the desired schema changes.
+3. Apply the migration to your database:
+```
+alembic upgrade
+```
+4. Repeat steps 2 and 3 for each schema change you make.
