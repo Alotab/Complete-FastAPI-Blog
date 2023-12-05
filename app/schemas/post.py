@@ -23,8 +23,7 @@ class Post(PostBase):
     owner_id: int
     owner: UserOut
 
-    class Config:
-    #    orm_mode = True
+    class ConfigDict:
        from_attributes = True
 
 
@@ -32,6 +31,5 @@ class PostOut(BaseModel):
     Post: Post
     votes: int
 
-    class Config:
-    #    orm_mode = True
+    class ConfigDict:
        from_attributes = True
