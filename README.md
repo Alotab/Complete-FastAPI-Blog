@@ -26,7 +26,9 @@ Retrieves a list of posts.
   },
   ...
 ]
-```json
+
+```
+
 
 Parameters:
 - limit (optional): The maximum number of posts to return (default: 10)
@@ -49,6 +51,7 @@ Creates a new post.
 ```
 
 **Response:**
+
 ```
 {
   "id": 1,
@@ -113,6 +116,7 @@ Parameters:
 - `id`: The ID of the post
 
 **Response:**
+
 ```
 {
   "id": 1,
