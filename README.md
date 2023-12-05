@@ -10,7 +10,7 @@ This API requires OAuth2 authentication to access all endpoints.
 Get All Posts
 
 ### Get All Posts
-GET /posts
+`GET /posts` 
 
 Retrieves a list of posts.
 
@@ -31,13 +31,13 @@ Retrieves a list of posts.
 
 
 Parameters:
-- limit (optional): The maximum number of posts to return (default: 10)
-- skip (optional): The offset from which to start retrieving posts (default: 0)
-- search (optional): A search term to filter posts by title (case-insensitive)
+- `limit (optional)`: The maximum number of posts to return (default: 10)
+- `skip (optional)`: The offset from which to start retrieving posts (default: 0)
+- `search (optional)`: A search term to filter posts by title (case-insensitive)
 
 
 ### Create Post
-POST /posts
+`POST /posts` 
 
 Creates a new post.
 
@@ -64,7 +64,7 @@ Creates a new post.
 ```
 
 ### Get Post
-GET /posts/{id}
+`GET /posts/{id}` 
 
 Retrieves a specific post.
 
@@ -84,7 +84,7 @@ Parameters:
 ```
 
 ### Delete Post
-DELETE /posts/delete/{id}
+`DELETE /posts/delete/{id}` 
 
 Deletes a specific post.
 
@@ -100,7 +100,7 @@ Parameters:
 
 
 ### Update Post
-PUT /posts/{id}
+`PUT /posts/{id}` 
 
 Updates a specific post.
 
